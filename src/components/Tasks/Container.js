@@ -8,10 +8,18 @@ class Container extends Component {
     this.textChanged = this.textChanged.bind(this);
     this.searchChanged = this.searchChanged.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
     this.state = {
       query: '',
       task: '',
-      tasks: []
+      tasks: [],
+      delTask: (index) => {
+          let tasks = this.state.tasks;
+          tasks.splice(index, 1);
+          this.setState({
+              tasks
+          })
+      }
     };
   }
 
@@ -48,6 +56,7 @@ class Container extends Component {
         <TasksList
           query={this.state.query}
           tasks={this.state.tasks}
+          delTask={this.state.delTask}
         />
 
       </div>
@@ -55,4 +64,4 @@ class Container extends Component {
   }
 }
 
-export default Container
+export default Container;
