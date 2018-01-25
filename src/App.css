@@ -6,17 +6,24 @@
     width: 100%;
     max-width: 500px;
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 80vh;
-    box-shadow: 5px 5px 10px black;
-    border-radius: 10px;
-    padding: 20px 20px 20px 20px;
 }
 
-#root>div>div:nth-child(2) {
+.paper_padding {
     height: 100%;
+    padding: 16px;
+}
+
+.paper_padding>div:nth-child(2) {
+    height: 100%;
+}
+
+.paper_padding h1 {
+    margin-top: 0;
+    text-align: center;
 }
 
 .List {
