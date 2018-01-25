@@ -1,9 +1,24 @@
+.submit_box {
+    width: 100%;
+    height: 25px;
+}
+
+form {
+    float: left;
+}
+
+.input_search {
+    float: right;
+    margin-left: 25%;
+}
+
 .trash {
     cursor: pointer;
 }
 
 #root>div {
-    width: 100%;
+    width: 95%;
+    min-width: 307px;
     max-width: 500px;
     position: absolute;
     top: 42%;

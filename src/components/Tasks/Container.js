@@ -42,23 +42,25 @@ class Container extends Component {
   render() {
     return (
       <div>
-        <input type="text" placeholder="Search..." onChange={this.searchChanged} />
+        <div className="submit_box">
+            <form onSubmit={this.handleSubmit}>
+              <input type="text"
+                     value={this.state.task}
+                     placeholder="Add task..."
+                     onChange={this.textChanged}/>
+              <input type="submit" value="Add"/>
+            </form>
 
-        <form onSubmit={this.handleSubmit}>
-          <input type="text"
-                 value={this.state.task}
-                 placeholder="Add task..."
-                 onChange={this.textChanged}/>
-          <input type="submit" value="Add"/>
-        </form>
-
-        <h2>My tasks</h2>
-        <TasksList
-          query={this.state.query}
-          tasks={this.state.tasks}
-          delTask={this.state.delTask}
-        />
-
+            <input  className="input_search" type="text" placeholder="Search..." onChange={this.searchChanged} />
+        </div>
+        <div>
+            <h2>My tasks</h2>
+        </div>
+            <TasksList
+              query={this.state.query}
+              tasks={this.state.tasks}
+              delTask={this.state.delTask}
+            />
       </div>
     );
   }

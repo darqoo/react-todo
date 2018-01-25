@@ -36,15 +36,13 @@ class Task extends Component {
 
     render() {
         return (
-            <div className='taskDiv'>
-
-                <ListItem button>
-
-                    <input type = "checkbox" onClick = {this.handleChange}/>
-                    <ListItemText style = {this.state.checked ? style.checked : style.unChecked} primary={this.props.label}/>
+            <div>
+                <ListItem button onClick = {this.handleChange}>
+                    <input type="checkbox"/>
+                    <ListItemText style={this.state.checked ? style.checked : style.unChecked} primary={this.props.label}/>
                     <ListItemSecondaryAction>
                         <IconButton aria-label="Delete">
-                            <DeleteIcon onClick = {(event) => {
+                            <DeleteIcon onClick={(event) => {
                                 this.props.delTask(this.props.index);
                                 event.stopPropagation();
                             }}/>
