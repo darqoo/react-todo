@@ -32,10 +32,13 @@ class Container extends Component {
   }
 
   handleSubmit(event) {
-    this.setState({
-      tasks: this.state.tasks.concat(this.state.task),
-      task: ''
-    });
+    this.state.task !== '' ?
+        this.setState({
+            tasks: this.state.tasks.concat(this.state.task),
+            task: ''
+        })
+    : console.log('null') ;
+
     event.preventDefault();
   }
 
