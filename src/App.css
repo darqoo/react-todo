@@ -4,12 +4,20 @@
 }
 
 form {
+    width: 100%;
     float: left;
 }
 
+.input_add {
+    width: 80%;
+}
+
 .input_search {
-    float: right;
-    margin-left: 25%;
+    width: 80%;
+}
+
+.submit_btn {
+    width: 14%;
 }
 
 .trash {
@@ -48,4 +56,17 @@ form {
 
 h2 {
     text-align: center;
+}
+
+@media(min-width: 499.99px) {
+    form {
+        width: 50%;
+    }
+    .submit_btn {
+        width: auto;
+    }
+    .input_search {
+        width: 47%;
+        float: right;
+    }
 }

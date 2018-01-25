@@ -47,11 +47,14 @@ class Container extends Component {
       <div>
         <div className="submit_box">
             <form onSubmit={this.handleSubmit}>
-              <input type="text"
+              <input className="input_add"
+                     type="text"
                      value={this.state.task}
                      placeholder="Add task..."
                      onChange={this.textChanged}/>
-              <input type="submit" value="Add"/>
+              <input className="submit_btn"
+                     type="submit"
+                     value="Add"/>
             </form>
 
             <input  className="input_search" type="text" placeholder="Search..." onChange={this.searchChanged} />
