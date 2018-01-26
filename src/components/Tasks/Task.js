@@ -1,51 +1,42 @@
 import React, {Component} from 'react';
-
-import {
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText
-} from 'material-ui/List';
+import { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
-
+import Checkbox from 'material-ui/Checkbox';
 
 
 const style = {
     checked: {
-        textDecoration: 'line-through'
+        textDecoration: 'line-through',
+        color: "red"
     },
-    unChecked: {
-        color: 'green'
-    }
+    unChecked: {}
 }
 
 class Task extends Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.state = {
+
+        state = {
             checked: false,
         }
-    }
 
-    handleChange(event) {
-        this.setState({
-            checked: event.target.checked
-        });
-    }
+        handleChange = (event) => {
+          this.setState({
+            checked: !this.state.checked
+          });
+        }
 
     render() {
         return (
             <div>
-                <ListItem button onClick = {this.handleChange}>
-                    <input type="checkbox"/>
+                <ListItem>
+                <Checkbox
+                  checked={this.state.checked}
+                  onChange={this.handleChange}
+                />
                     <ListItemText style={this.state.checked ? style.checked : style.unChecked} primary={this.props.label}/>
                     <ListItemSecondaryAction>
                         <IconButton aria-label="Delete">
-                            <DeleteIcon onClick={(event) => {
-                                this.props.delTask(this.props.index);
-                                event.stopPropagation();
-                            }}/>
+                            <DeleteIcon onClick={this.props.delTask}/>
                             </IconButton>
                             </ListItemSecondaryAction>
                 </ListItem>

@@ -1,23 +1,5 @@
 .submit_box {
     width: 100%;
-    height: 25px;
-}
-
-form {
-    width: 100%;
-    float: left;
-}
-
-.input_add {
-    width: 80%;
-}
-
-.input_search {
-    width: 80%;
-}
-
-.submit_btn {
-    width: 14%;
 }
 
 .trash {
@@ -67,6 +49,12 @@ h2 {
     }
     .input_search {
         width: 47%;
+        float: right;
+    }
+}
+
+@media(min-width: 473px) {
+    .search {
         float: right;
     }
 }

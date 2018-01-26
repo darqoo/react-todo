@@ -1,32 +1,19 @@
 import React, {Component} from 'react';
 import Task from './Task';
 
-class TasksList extends Component {
+const TasksList = (props) => (
 
-
-   render() {
-        let serchedTasks = this.props.tasks.filter(
-            (task) => {
-                return task.indexOf(this.props.query) !== -1;
-            }
-        );
-        return (
             <div className="List">
-                {serchedTasks.map((task, index) => {
-                    return (
+                {props.tasks
+                    .filter(task => task.name.toUpperCase().indexOf(props.query.toUpperCase()) !== -1)
+                    .map(task => (
                         <Task
-                            key={index}
-                            label={task}
-                            index={index}
-                            delTask={
-                                () => {this.props.delTask(index)}
-                            }
+                            key={`task-${task.id}`}
+                            label={task.name}
+                            delTask={() => props.delTask(task.id)}
                         />
-                    )
-                })}
-
+                    ))}
            </div>
-        )
-    }
-}
+       );
+
 export default TasksList;
