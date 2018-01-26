@@ -15,25 +15,15 @@ const style = {
 
 class Task extends Component {
 
-        state = {
-            checked: false,
-        }
-
-        handleChange = (event) => {
-          this.setState({
-            checked: !this.state.checked
-          });
-        }
-
     render() {
         return (
             <div>
                 <ListItem>
                 <Checkbox
-                  checked={this.state.checked}
-                  onChange={this.handleChange}
+                  checked={this.props.checked}
+                  onChange={this.props.checkboxChange}
                 />
-                    <ListItemText style={this.state.checked ? style.checked : style.unChecked} primary={this.props.label}/>
+                    <ListItemText style={this.props.checked ? style.checked : style.unChecked} primary={this.props.label}/>
                     <ListItemSecondaryAction>
                         <IconButton aria-label="Delete">
                             <DeleteIcon onClick={this.props.delTask}/>

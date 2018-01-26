@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TasksList from './TasksList';
 import { connect } from 'react-redux';
-import { add, search, remove, init } from '../state';
+import { add, search, remove, checkboxChange, init } from '../state';
 
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addNewTask: task => dispatch(add(task)),
   searchTask: value => dispatch(search(value)),
+  checkboxChange: (taskId, checked, taskName) => dispatch(checkboxChange(taskId, checked, taskName)),
   removeTask: taskId => dispatch(remove(taskId)),
   initTasks: () => dispatch(init())
 });
@@ -47,13 +48,18 @@ class Container extends Component {
     this.props.removeTask(task);
   }
 
-onPressEnterKey = (event) => {
-  if (event.charCode === 13 && this.state.task !== '') {
-      event.preventDefault();
-      this.props.addNewTask(this.state.task);
-      this.setState({task: ''});
+  onPressEnterKey = (event) => {
+      if (event.charCode === 13 && this.state.task !== '') {
+          event.preventDefault();
+          this.props.addNewTask(this.state.task);
+          this.setState({task: ''});
+      }
   }
-}
+
+  checkboxChange = (task, checked, taskName) => {
+      this.props.checkboxChange(task, checked, taskName);
+  }
+
 
   render() {
     return (
@@ -69,6 +75,7 @@ onPressEnterKey = (event) => {
             <TasksList
               query={this.props.query}
               tasks={this.props.tasksList}
+              checkboxChange={this.checkboxChange}
               delTask={this.delTask}
             />
       </div>

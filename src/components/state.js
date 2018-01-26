@@ -15,6 +15,15 @@ export const search = value => ({
   value
 });
 
+export const checkboxChange = (taskId, checked, taskName) => dispatch => {
+  console.log(`${taskId} ${checked}`);
+  database.ref(`/tasks/${taskId}`)
+  .set({
+      checked: !checked,
+      name: taskName
+  })
+};
+
 export const remove = taskId => dispatch => {
   database.ref(`/tasks/${taskId}`).remove()
 };

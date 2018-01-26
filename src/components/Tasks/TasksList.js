@@ -9,7 +9,9 @@ const TasksList = (props) => (
                     .map(task => (
                         <Task
                             key={`task-${task.id}`}
+                            checked={task.checked}
                             label={task.name}
+                            checkboxChange={() => props.checkboxChange(task.id, task.checked, task.name)}
                             delTask={() => props.delTask(task.id)}
                         />
                     ))}
