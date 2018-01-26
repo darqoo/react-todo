@@ -37,19 +37,27 @@ class Container extends Component {
   }
 
   handleSubmit = (event) => {
-    this.props.addNewTask(this.state.task);
-    this.setState({task: ''});
+        this.props.addNewTask(this.state.task);
+        this.setState({task: ''});
   }
 
   delTask = task => {
     this.props.removeTask(task);
   }
 
+onPressEnterKey = (event) => {
+  if (event.charCode === 13) {
+      event.preventDefault();
+      this.props.addNewTask(this.state.task);
+      this.setState({task: ''});
+  }
+}
+
   render() {
     return (
       <div>
         <div className="submit_box">
-            <TextField value={this.state.task} onChange={this.textChanged}/>
+            <TextField value={this.state.task} onChange={this.textChanged} onKeyPress={this.onPressEnterKey}/>
             <Button raised color="primary" mini="true" dense="true" onClick={this.handleSubmit}>Add</Button>
             <TextField placeholder="Search" onChange={this.searchChanged} className="search"/>
         </div>
