@@ -37,8 +37,10 @@ class Container extends Component {
   }
 
   handleSubmit = (event) => {
-        this.props.addNewTask(this.state.task);
-        this.setState({task: ''});
+      if (this.state.task !== '') {
+          this.props.addNewTask(this.state.task);
+          this.setState({task: ''});
+      }
   }
 
   delTask = task => {
@@ -46,7 +48,7 @@ class Container extends Component {
   }
 
 onPressEnterKey = (event) => {
-  if (event.charCode === 13) {
+  if (event.charCode === 13 && this.state.task !== '') {
       event.preventDefault();
       this.props.addNewTask(this.state.task);
       this.setState({task: ''});
