@@ -38,6 +38,7 @@ class Container extends Component {
 
   handleSubmit = (event) => {
     this.props.addNewTask(this.state.task);
+    this.setState({task: ''});
   }
 
   delTask = task => {
