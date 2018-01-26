@@ -6,7 +6,8 @@ const POPULATE_TASKS = 'POPULATE_TASKS';
 export const add = taskName => dispatch => {
   database.ref('/tasks')
     .push({
-      name: taskName
+      name: taskName,
+      checked: false
     })
 };
 
@@ -16,7 +17,6 @@ export const search = value => ({
 });
 
 export const checkboxChange = (taskId, checked, taskName) => dispatch => {
-  console.log(`${taskId} ${checked}`);
   database.ref(`/tasks/${taskId}`)
   .set({
       checked: !checked,
