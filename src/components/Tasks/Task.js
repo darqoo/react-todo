@@ -23,7 +23,8 @@ class Task extends Component {
             onChange={this.props.checkboxChange}/>
           <ListItemText
             style={this.props.checked ? style.checked : style.unChecked}
-            primary={this.props.label}/>
+            primary={this.props.label}
+            secondary={this.props.date}/>
           <ListItemSecondaryAction>
             <IconButton
               aria-label="Delete">
