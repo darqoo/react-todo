@@ -6,6 +6,7 @@ const TasksList = (props) => (
   <div className="List">
     {props.tasks
       .filter(task => task.name.toUpperCase().indexOf(props.query.toUpperCase()) !== -1)
+      .reverse()
       .map(task => (
         <Task
           key={`task-${task.id}`}
