@@ -3,12 +3,8 @@ import {database} from '../firebase';
 const FILTER_TASKS = 'FILTER_TASKS';
 const POPULATE_TASKS = 'POPULATE_TASKS';
 
-export const add = taskName => dispatch => {
-  database.ref('/tasks')
-    .push({
-      name: taskName,
-      checked: false
-    })
+export const add = task => dispatch => {
+  database.ref('/tasks').push(task)
 };
 
 export const search = value => ({
@@ -16,11 +12,10 @@ export const search = value => ({
   value
 });
 
-export const checkboxChange = (taskId, checked, taskName) => dispatch => {
+export const checkboxChange = (taskId, checked) => dispatch => {
   database.ref(`/tasks/${taskId}`)
-  .set({
+  .update({
       checked: !checked,
-      name: taskName
   })
 };
 

@@ -11,7 +11,7 @@ const TasksList = (props) => (
           key={`task-${task.id}`}
           checked={task.checked}
           label={task.name}
-          checkboxChange={() => props.checkboxChange(task.id, task.checked, task.name)}
+          checkboxChange={() => props.checkboxChange(task.id, task.checked)}
           delTask={() => props.delTask(task.id)}/>
       ) )
     }

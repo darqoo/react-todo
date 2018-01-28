@@ -11,7 +11,7 @@ const mapStateToProps = state => ({tasksList: state.tasks.tasks, query: state.ta
 const mapDispatchToProps = dispatch => ({
   addNewTask: task => dispatch(add(task)),
   searchTask: value => dispatch(search(value)),
-  checkboxChange: (taskId, checked, taskName) => dispatch(checkboxChange(taskId, checked, taskName)),
+  checkboxChange: (taskId, checked) => dispatch(checkboxChange(taskId, checked)),
   removeTask: taskId => dispatch(remove(taskId)),
   initTasks: () => dispatch(init())
 });
@@ -19,7 +19,9 @@ const mapDispatchToProps = dispatch => ({
 class Container extends Component {
 
   state = {
-    task: ''
+    name: '',
+    checked: false,
+    date: ''
   }
 
   componentWillMount() {
@@ -27,7 +29,12 @@ class Container extends Component {
   }
 
   textChanged = (event) => {
-    this.setState({task: event.target.value});
+      let date = new Date();
+      let time = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}  ${date.getHours()}:${date.getMinutes()}`;
+    this.setState({
+      name: event.target.value,
+      date: time
+    });
   }
 
   searchChanged = (event) => {
@@ -35,9 +42,9 @@ class Container extends Component {
   }
 
   handleSubmit = (event) => {
-    if (this.state.task !== '') {
-      this.props.addNewTask(this.state.task);
-      this.setState({task: ''});
+    if (this.state.name) {
+      this.props.addNewTask(this.state);
+      this.setState({name: ''});
     }
   }
 
@@ -46,15 +53,15 @@ class Container extends Component {
   }
 
   onPressEnterKey = (event) => {
-    if (event.charCode === 13 && this.state.task !== '') {
+    if (event.charCode === 13 && this.state.name) {
       event.preventDefault();
-      this.props.addNewTask(this.state.task);
-      this.setState({task: ''});
+      this.props.addNewTask(this.state);
+      this.setState({name: ''});
     }
   }
 
-  checkboxChange = (task, checked, taskName) => {
-    this.props.checkboxChange(task, checked, taskName);
+  checkboxChange = (task, checked) => {
+    this.props.checkboxChange(task, checked);
   }
 
   render() {
@@ -62,7 +69,7 @@ class Container extends Component {
       <div>
         <div className="submit_box">
           <TextField
-            value={this.state.task}
+            value={this.state.name}
             onChange={this.textChanged}
             onKeyPress={this.onPressEnterKey}/>
           <Button
