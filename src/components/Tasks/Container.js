@@ -1,17 +1,24 @@
 import React, {Component} from 'react';
 import TasksList from './TasksList';
 import {connect} from 'react-redux';
-import {add, search, remove, checkboxChange, init} from '../state';
+import {add, search, remove, checkboxChange, init, sortByDate} from '../state';
 
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
+import Switch from 'material-ui/Switch';
+import {ListItem, ListItemText} from 'material-ui/List';
 
-const mapStateToProps = state => ({tasksList: state.tasks.tasks, query: state.tasks.query});
+const mapStateToProps = state => ({
+  tasksList: state.tasks.tasks,
+  query: state.tasks.query,
+  state: state.tasks.state
+});
 
 const mapDispatchToProps = dispatch => ({
   addNewTask: task => dispatch(add(task)),
   searchTask: value => dispatch(search(value)),
   checkboxChange: (taskId, checked) => dispatch(checkboxChange(taskId, checked)),
+  sortByDate: (stateOfReverse) => dispatch(sortByDate(stateOfReverse)),
   removeTask: taskId => dispatch(remove(taskId)),
   initTasks: () => dispatch(init())
 });
@@ -64,6 +71,11 @@ class Container extends Component {
     this.props.checkboxChange(task, checked);
   }
 
+  sortByDate = (stateOfReverse) => {
+    this.props.sortByDate(this.props.state[0]);
+  }
+
+
   render() {
     return (
       <div>
@@ -91,8 +103,14 @@ class Container extends Component {
         <TasksList
           query={this.props.query}
           tasks={this.props.tasksList}
+          reverse={this.props.state}
           checkboxChange={this.checkboxChange}
           delTask={this.delTask}/>
+        <ListItem>
+        <Switch onClick={this.sortByDate}/>
+          <ListItemText
+            primary="Sort by date"/>
+        </ListItem>
       </div>
     );
   }
