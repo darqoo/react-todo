@@ -1,63 +1,15 @@
 const app = require('./App.css')
 
-
-.submit_box {
-  width: 100%;
-}
-
 .trash {
   cursor: pointer;
 }
 
-/* #root>div {
-  width: 95%;
-  min-width: 307px;
-  max-width: 500px;
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 80vh;
-} */
-
 .paper_padding {
-  height: 100%;
-  padding: 16px;
+  /* height: 100%; */
+  padding: 8px;
+  /* min-height: 89vh; */
 }
 
-.paper_padding>div:nth-child(2) {
-  height: 100%;
-}
-
-.paper_padding h1 {
-  margin-top: 0;
-  text-align: center;
-}
-
-.List {
-  overflow-y: auto;
-  height: 73%;
-}
-
-h2 {
-  text-align: center;
-}
-
-@media(min-width: 499.99px) {
-  form {
-    width: 50%;
-  }
-  .submit_btn {
-    width: auto;
-  }
-  .input_search {
-    width: 47%;
-    float: right;
-  }
-}
-
-@media(min-width: 473px) {
-  .search {
-    float: right;
-  }
+.header {
+  background-color: #d9edfe;
 }

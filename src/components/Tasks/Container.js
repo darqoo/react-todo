@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Grid from 'material-ui/Grid';
+import 'typeface-roboto'
 import TasksList from './TasksList';
+import Typography from 'material-ui/Typography';
 import {connect} from 'react-redux';
 import {add, search, remove, checkboxChange, init, sortByDate} from '../state';
 
@@ -79,8 +81,8 @@ class Container extends Component {
 
   render() {
     return (
-      <div>
-        <div className="submit_box">
+      <Grid container>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
           <TextField
             value={this.state.name}
             onChange={this.textChanged}
@@ -97,23 +99,32 @@ class Container extends Component {
             placeholder="Search"
             onChange={this.searchChanged}
             className="search"/>
-        </div>
-        <div>
-          <h2>My tasks</h2>
-        </div>
-        <TasksList
-          query={this.props.query}
-          tasks={this.props.tasksList}
-          reverse={this.props.state}
-          checkboxChange={this.checkboxChange}
-          delTask={this.delTask}/>
-        <ListItem>
-        <Switch onClick={this.sortByDate}/>
-          <ListItemText
-            primary="Sort by date"/>
-        </ListItem>
-      </div>
-    );
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
+          <Typography type="display1" spaceing="24">
+            Tasks list
+          </Typography>
+          <Switch onClick={this.sortByDate}/>
+
+        </Grid>
+        <Grid container>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <TasksList
+              query={this.props.query}
+              tasks={this.props.tasksList}
+              reverse={this.props.state}
+              checkboxChange={this.checkboxChange}
+              delTask={this.delTask}/>
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <ListItem>
+                <ListItemText
+                  primary="Sort by date"/>
+            </ListItem>
+          </Grid>
+        </Grid>
+      </Grid>
+  );
   }
 }
 

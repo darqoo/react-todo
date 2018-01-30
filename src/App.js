@@ -1,4 +1,5 @@
 import React from 'react';
+import 'typeface-roboto'
 import Grid from 'material-ui/Grid';
 
 import Header from './components/Header';

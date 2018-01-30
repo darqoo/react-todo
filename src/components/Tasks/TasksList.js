@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Grid from 'material-ui/Grid';
 import Task from './Task';
+import 'typeface-roboto'
 import {connect} from 'react-redux';
 
 const mapStateToProps = state => ({
