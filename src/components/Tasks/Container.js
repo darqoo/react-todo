@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Grid from 'material-ui/Grid';
 import TasksList from './TasksList';
 import {connect} from 'react-redux';
 import {add, search, remove, checkboxChange, init, sortByDate} from '../state';

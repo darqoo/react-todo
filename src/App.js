@@ -1,4 +1,5 @@
 import React from 'react';
+import Grid from 'material-ui/Grid';
 
 import Header from './components/Header';
 import TaskContainer from './components/Tasks/Container';
