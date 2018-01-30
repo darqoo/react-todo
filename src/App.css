@@ -1,3 +1,6 @@
+const app = require('./App.css')
+
+
 .submit_box {
   width: 100%;
 }
@@ -6,7 +9,7 @@
   cursor: pointer;
 }
 
-#root>div {
+/* #root>div {
   width: 95%;
   min-width: 307px;
   max-width: 500px;
@@ -15,7 +18,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   height: 80vh;
-}
+} */
 
 .paper_padding {
   height: 100%;

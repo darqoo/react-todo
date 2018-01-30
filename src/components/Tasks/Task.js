@@ -14,7 +14,6 @@ const style = {
 }
 
 class Task extends Component {
-
   render() {
     return (
       <div>
