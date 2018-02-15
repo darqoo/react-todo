@@ -20,6 +20,7 @@ const App = (props) => (
         </Paper>
       </Grid>
     </Grid>
+    
 )
 
 export default App;
