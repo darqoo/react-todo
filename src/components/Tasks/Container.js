@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import Grid from 'material-ui/Grid';
-import 'typeface-roboto'
 import TasksList from './TasksList';
 import Typography from 'material-ui/Typography';
-import {connect} from 'react-redux';
 import {add, search, remove, checkboxChange, init, sortByDate} from '../state';
+import {ListItem, ListItemText} from 'material-ui/List';
+import {connect} from 'react-redux';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Switch from 'material-ui/Switch';
-import {ListItem, ListItemText} from 'material-ui/List';
+import 'typeface-roboto'
 
 const mapStateToProps = state => ({
   tasksList: state.tasks.tasks,
