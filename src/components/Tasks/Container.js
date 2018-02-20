@@ -103,7 +103,6 @@ class Container extends Component {
             Tasks list
           </Typography>
           <Switch onClick={this.sortByDate}/>
-
         </Grid>
         <Grid container>
           <Grid item xs={12} sm={12} md={12} lg={12}>
