@@ -6,13 +6,11 @@ Run once on your machine
 npm install -g create-react-app
 ```
 
-
 ## Run
 Install dependencies
 ```bash
 npm install
 ```
-
 
 Run application
 ```bash
