@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Grid from 'material-ui/Grid';
-import 'typeface-roboto'
 import {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
+import Grid from 'material-ui/Grid';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
 import Checkbox from 'material-ui/Checkbox';
+import 'typeface-roboto'
 
 const style = {
   checked: {
