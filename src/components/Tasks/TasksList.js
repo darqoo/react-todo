@@ -38,7 +38,8 @@ class TasksList extends Component {
              checked={task.checked}
              label={task.name}
              date={task.date}
-             checkboxChange={() => this.props.checkboxChange(task.id, task.checked)}
+             checkboxChange={() =>
+               this.props.checkboxChange(task.id, task.checked)}
              delTask={() => this.props.delTask(task.id)}/>
          ))
      }
