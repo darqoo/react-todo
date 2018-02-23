@@ -10,8 +10,6 @@ const mapStateToProps = state => ({
   state: state.tasks.state
 });
 
-
-
 class TasksList extends Component {
 
  render() {
