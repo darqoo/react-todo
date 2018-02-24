@@ -5,7 +5,6 @@ import TasksList from './TasksList';
 import Typography from 'material-ui/Typography';
 import {connect} from 'react-redux';
 import {add, search, remove, checkboxChange, init, sortByDate} from '../state';
-
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Switch from 'material-ui/Switch';
