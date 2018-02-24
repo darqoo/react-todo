@@ -91,6 +91,7 @@ class Header extends Component {
         break;
       default:
     }
+    
     if (dayNo === '1') {
       dayNo += 'st'
     } else if (dayNo === '2') {
