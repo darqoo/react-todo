@@ -4,7 +4,6 @@ import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import tasksReducer from './components/state';
-
 import App from './App';
 
 const reducers = combineReducers({tasks: tasksReducer});
