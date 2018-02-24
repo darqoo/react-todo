@@ -13,8 +13,6 @@ export const search = value => ({
   value
 });
 
-
-
 export const checkboxChange = (taskId, checked) => dispatch => {
   database.ref(`/tasks/${taskId}`)
   .update({
@@ -42,7 +40,6 @@ export const stateOfApp = state => ({
   type: STATE_OF_APP,
   state
 });
-
 
 export const init = () => dispatch => {
   database.ref('/tasks')
