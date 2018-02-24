@@ -77,7 +77,6 @@ class Container extends Component {
     this.props.sortByDate(this.props.state[0]);
   }
 
-
   render() {
     return (
       <Grid container>
