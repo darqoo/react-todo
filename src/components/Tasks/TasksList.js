@@ -42,8 +42,7 @@ class TasksList extends Component {
          ))
      }
    </div>
- )
- }
+ )}
 
 
 }
