@@ -44,7 +44,6 @@ class TasksList extends Component {
    </div>
  )}
 
-
 }
 
 export default connect(mapStateToProps)(TasksList);
