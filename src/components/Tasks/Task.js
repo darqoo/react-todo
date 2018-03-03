@@ -35,8 +35,6 @@ class Task extends Component {
           </ListItemSecondaryAction>
         </ListItem>
       </div>
-    )
-  }
-}
+    )}}
 
 export default Task;
